@@ -16,15 +16,19 @@
     </thead>
     <tbody>
         @foreach ($posts as $post)
+        <tr>
             <td>{{ $post->id }}</td>
             <td>{{ $post->title }}</td>
             <td>{{ $post->posted }}</td>
             <td>{{ $post->created_at->format('d-m-y') }}</td>
             <td>{{ $post->updated_at->format('d-m-y')}}</td>
-            <td>-</td>
+            <td></td>
+        </tr>
         @endforeach
     </tbody>
 </table>
-
+<div class="container">
+    {{ $posts->links() }}
+</div>
 @endsection
 
