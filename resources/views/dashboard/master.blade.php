@@ -8,14 +8,9 @@
     <title>Modulo Admin</title>
 </head>
 <body>
+    @include('dashboard.partials.nav-header-main')
     <div class=" container">
-
-        @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
-            </div>
-        @endif
-
+        @include('dashboard.partials.session-flash-status')
         @yield('content')
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
