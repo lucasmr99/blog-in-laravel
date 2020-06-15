@@ -53,6 +53,9 @@ class PostController extends Controller
         echo "hola mundo: ".$request->content;
 
         Post::create($request->validated());
+
+        //redirecciona hacia atras
+        return back()->with('status', 'Post creado exitosamente');
     }
 
     /**

@@ -9,6 +9,13 @@
 </head>
 <body>
     <div class=" container">
+
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
+
         @yield('content')
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
