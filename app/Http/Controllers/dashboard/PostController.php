@@ -65,9 +65,21 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        /* $post = Post::find($id);
+
+        if(isset($post)){
+            return view('dashboard.post.show',['post' => $post]);
+        } */
+
+        //ESTA ES OTRA FORMA MAS CORTA SIN MUCHA LOGICA
+
+        //$post = Post::findOrFail($id);
+
+        return view('dashboard.post.show', ['post' => $post]);
+
+
     }
 
     /**

@@ -22,7 +22,7 @@
             <td>{{ $post->posted }}</td>
             <td>{{ $post->created_at->format('d-m-y') }}</td>
             <td>{{ $post->updated_at->format('d-m-y')}}</td>
-            <td></td>
+        <td><a href="{{ route('post.show',$post->id) }}" class=" btn btn-primary">Ver</a></td>
         </tr>
         @endforeach
     </tbody>
