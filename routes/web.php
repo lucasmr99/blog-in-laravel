@@ -49,3 +49,4 @@ Route::get('home/{name?}', function ($name = "lucas") {
 //Route::get('post', 'PostController@index');
 
 Route::resource('dashboard/post', 'dashboard\PostController');
+Route::resource('dashboard/category', 'dashboard\CategoryController');
