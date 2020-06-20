@@ -12,7 +12,7 @@
             <label for="ctegory_id">Categorias</label>
             <select class=" form-control" name="category_id" id="category_id" >
                 @foreach ($categories as $title => $id)
-            <option value="{{ $id }}">{{ $title }}</option>
+            <option {{ $post->category_id == $id ? 'selected="selected"' : '' }}  value="{{ $id }}">{{ $title }}</option>
                 @endforeach
             </select>
         </div>
@@ -20,7 +20,7 @@
         <div class="form-group">
             <label for="posted">Posted</label>
             <select class=" form-control" name="posted" id="posted" >
-                @include('dashboard.partials.option-yes-not')
+                @include('dashboard.partials.option-yes-not', ['val' => $post->posted])
             </select>
         </div>
 
