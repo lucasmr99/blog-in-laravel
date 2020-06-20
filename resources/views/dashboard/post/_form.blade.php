@@ -7,6 +7,16 @@
             <label for="url_clean">Url Limpia</label>
              <input type="text" id="url_clean" class="form-control" name="url_clean" value="{{ old('url_clean', $post->url_clean) }}">
         </div>
+
+        <div class="form-group">
+            <label for="ctegory_id">Categorias</label>
+            <select class=" form-control" name="category_id" id="category_id" >
+                @foreach ($categories as $title => $id)
+            <option value="{{ $id }}">{{ $title }}</option>
+                @endforeach
+            </select>
+        </div>
+
         <div class="form-group">
              <label for="content">Contenido</label>
              <textarea class="form-control" id="content" rows="3" name="content">{{ old('content', $post->content) }}</textarea>
