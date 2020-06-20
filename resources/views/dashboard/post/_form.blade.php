@@ -18,6 +18,13 @@
         </div>
 
         <div class="form-group">
+            <label for="posted">Posted</label>
+            <select class=" form-control" name="posted" id="posted" >
+                @include('dashboard.partials.option-yes-not')
+            </select>
+        </div>
+
+        <div class="form-group">
              <label for="content">Contenido</label>
              <textarea class="form-control" id="content" rows="3" name="content">{{ old('content', $post->content) }}</textarea>
         </div>
