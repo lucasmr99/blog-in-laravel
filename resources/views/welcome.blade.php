@@ -79,6 +79,10 @@
                 </div>
             @endif
 
+            @auth
+                {{ auth()->user()->name }}   // The user is authenticated...
+            @endauth
+
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
