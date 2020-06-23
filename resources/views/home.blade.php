@@ -15,7 +15,7 @@
                     @endif
 
                     @auth
-                        {{ auth()->user()->name }}   // The user is authenticated...
+                        {{ auth()->user() }}   // The user is authenticated...
                     @endauth
 
                     You are logged in!
