@@ -15,29 +15,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->paginate(1);
+        $posts = Post::
+        join('post_images','post_images.post_id','=','posts.id')->
+        join('categories','categories.id','=','posts.category_id')->
+        select('posts.*', 'categories.title as category', 'post_images.image')->
+        orderBy('posts.created_at', 'desc')->paginate(1);
         return  response()->json($posts);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -48,40 +31,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $post->image;
+        $post->category;
         return  response()->json($post);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
