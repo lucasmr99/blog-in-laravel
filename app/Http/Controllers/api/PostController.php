@@ -6,7 +6,7 @@ use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PostController extends Controller
+class PostController extends ApiResponseController
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +20,9 @@ class PostController extends Controller
         join('categories','categories.id','=','posts.category_id')->
         select('posts.*', 'categories.title as category', 'post_images.image')->
         orderBy('posts.created_at', 'desc')->paginate(1);
-        return  response()->json($posts);
+
+        return $this->successResponse($posts);
+        // return  response()->json($posts);
     }
 
     /**
@@ -33,7 +35,9 @@ class PostController extends Controller
     {
         $post->image;
         $post->category;
-        return  response()->json($post);
+
+        return $this->successResponse($post);
+        // return  response()->json( array( 'data' => $post, 'code' => 200, 'msj' => ''));
     }
 
 }
