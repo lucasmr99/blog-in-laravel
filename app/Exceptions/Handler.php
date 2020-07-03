@@ -57,6 +57,10 @@ class Handler extends ExceptionHandler
     {
         // dd($exception);
 
+        if( env('APP_ENV') == 'local'){ //ver si estamos en ambiente de producion o desarrollo
+            return parent::render($request, $exception);
+        }
+
         if ($exception instanceof NotFoundHttpException) {
             return $this->errorResponse('pagina no encontrada' , $code =404, $msj = 'pagina no encontrado');
         }
@@ -65,6 +69,7 @@ class Handler extends ExceptionHandler
             return $this->errorResponse('Recurso no encontrado' , $code =404, $msj = 'Recurso no encontrado');
         }
         
+
         return parent::render($request, $exception);
 
     }
