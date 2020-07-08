@@ -6,8 +6,7 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
-
+import router from './assets/router';
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -28,10 +27,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 Vue.component('list-posts', require('./components/PostsListComponent.vue').default);
+Vue.component('modal-posts', require('./components/PostsModalComponent.vue').default);
 
 const app = new Vue({
     el: '#app',
-    data: {
-        mesagge: "con vue"
-    }   
+    router,  
 });
