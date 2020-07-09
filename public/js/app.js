@@ -2005,8 +2005,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     postClick: function postClick(p) {
@@ -2017,22 +2015,27 @@ __webpack_require__.r(__webpack_exports__);
     return {
       postSelected: '',
       posts: [{
+        id: 1,
         title: 'titulo 1',
         image: '1592672021.jpeg',
         content: '/** * Next, we will create a fresh Vue application instance and attach it to * the page. Then, you may begin adding components to this application * or customize the JavaScript scaffolding to fit your unique needs. */'
       }, {
+        id: 2,
         title: 'titulo 2',
         image: '1592672021.jpeg',
         content: '/** * Next, we will create a fresh Vue application instance and attach it to * the page. Then, you may begin adding components to this application * or customize the JavaScript scaffolding to fit your unique needs. */'
       }, {
+        id: 3,
         title: 'titulo 3',
         image: '1592672021.jpeg',
         content: '/** * Next, we will create a fresh Vue application instance and attach it to * the page. Then, you may begin adding components to this application * or customize the JavaScript scaffolding to fit your unique needs. */'
       }, {
+        id: 4,
         title: 'titulo 4',
         image: '1592672021.jpeg',
         content: '/** * Next, we will create a fresh Vue application instance and attach it to * the page. Then, you may begin adding components to this application * or customize the JavaScript scaffolding to fit your unique needs. */'
       }, {
+        id: 5,
         title: 'titulo 5',
         image: '1592672021.jpeg',
         content: '/** * Next, we will create a fresh Vue application instance and attach it to * the page. Then, you may begin adding components to this application * or customize the JavaScript scaffolding to fit your unique needs. */'
@@ -37735,38 +37738,46 @@ var render = function() {
             attrs: { src: "/images/" + post.image, alt: "..." }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("h5", { staticClass: "card-title" }, [
-              _vm._v(_vm._s(post.title))
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v(_vm._s(post.content))
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary",
-                on: {
-                  click: function($event) {
-                    return _vm.postClick(post)
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            [
+              _c("h5", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(post.title))
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v(_vm._s(post.content))
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  on: {
+                    click: function($event) {
+                      return _vm.postClick(post)
+                    }
                   }
-                }
-              },
-              [_vm._v("Ver Resumen")]
-            )
-          ])
+                },
+                [_vm._v("Ver Resumen")]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "btn btn-success",
+                  attrs: { to: "detail/" + post.id }
+                },
+                [_vm._v("Ver")]
+              )
+            ],
+            1
+          )
         ])
       }),
       _vm._v(" "),
-      _c("modal-posts", { attrs: { post: _vm.postSelected } }),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/foo" } }, [_vm._v("Go to Foo")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/bar" } }, [_vm._v("Go to Bar")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/" } }, [_vm._v("Go to Bar list")])
+      _c("modal-posts", { attrs: { post: _vm.postSelected } })
     ],
     2
   )
@@ -53134,9 +53145,11 @@ const Bar = { template:
 }; */
 
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  routes: [// { path: '/', component: PostList }, 
-  {
+  routes: [{
     path: '/',
+    component: _components_PostsListComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }, {
+    path: '/detail/:id',
     component: _components_PostsDetailComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   }] // short for `routes: routes`
 
