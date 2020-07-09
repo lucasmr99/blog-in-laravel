@@ -9,6 +9,9 @@
             </div>
         </div>
         <modal-posts :post="postSelected"></modal-posts>
+        <router-link to="/foo">Go to Foo</router-link>
+        <router-link to="/bar">Go to Bar</router-link>
+        <router-link to="/">Go to Bar list</router-link>
    </div>
 </template>
 
