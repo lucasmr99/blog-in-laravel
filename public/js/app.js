@@ -1962,7 +1962,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
-    console.log('creado');
+    console.log('creado ' + this.$route.params.id);
   },
   methods: {
     getPost: function getPost() {}
@@ -37767,7 +37767,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass: "btn btn-success",
-                  attrs: { to: "detail/" + post.id }
+                  attrs: { to: { name: "detail", params: { id: post.id } } }
                 },
                 [_vm._v("Ver")]
               )
@@ -53145,12 +53145,16 @@ const Bar = { template:
 }; */
 
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
+  mode: 'history',
+  //es util para quitar la # de la url
   routes: [{
     path: '/',
-    component: _components_PostsListComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    component: _components_PostsListComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    name: 'list'
   }, {
     path: '/detail/:id',
-    component: _components_PostsDetailComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    component: _components_PostsDetailComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    name: 'detail'
   }] // short for `routes: routes`
 
 }));
@@ -53496,8 +53500,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/lucas/Desktop/blog-in-laravel/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/lucas/Desktop/blog-in-laravel/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Usuario\Desktop\blog-in-laravel\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Usuario\Desktop\blog-in-laravel\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

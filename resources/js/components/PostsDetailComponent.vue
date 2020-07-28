@@ -21,7 +21,7 @@
 export default {
 
     created(){
-        console.log('creado');
+        console.log('creado ' + this.$route.params.id);
     },
 
     methods: {

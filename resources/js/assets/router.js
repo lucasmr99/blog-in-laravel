@@ -14,8 +14,9 @@ const Bar = { template:
 }; */
 
 export default new VueRouter({
+    mode: 'history', //es util para quitar la # de la url
     routes: [  
-        { path: '/', component: PostList }, 
-        { path: '/detail/:id', component: PostDetail }, 
+        { path: '/', component: PostList, name: 'list' }, 
+        { path: '/detail/:id', component: PostDetail, name: 'detail' }, 
     ]// short for `routes: routes`
 });
