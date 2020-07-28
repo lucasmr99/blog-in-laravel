@@ -55,6 +55,7 @@ Route::resource('dashboard/user', 'dashboard\UserController');
 Route::get('/','web\webController@index')->name('index');
 
 Route::get('/detail/{id}', 'web\webController@detail');
+Route::get('/post-category/{id}', 'web\webController@post_category');
 
 
 Auth::routes();
