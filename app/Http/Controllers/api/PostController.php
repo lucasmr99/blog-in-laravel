@@ -49,7 +49,7 @@ class PostController extends ApiResponseController
         select('posts.*', 'categories.title as category', 'post_images.image')->
         orderBy('posts.created_at', 'desc')->
         where('categories.id', $category->id)
-        ->paginate(10);
+        ->paginate(5);
 
         return $this->successResponse(['posts' => $posts, 'category' => $category]);
 

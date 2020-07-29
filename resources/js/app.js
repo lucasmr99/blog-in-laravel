@@ -29,6 +29,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 // Vue.component('list-posts', require('./components/PostsListComponent.vue').default);
 
 Vue.component('modal-posts', require('./components/PostsModalComponent.vue').default);
+Vue.component('posts-list-default', require('./components/PostsListDefaultComponent.vue').default);
 
 const app = new Vue({
     el: '#app',

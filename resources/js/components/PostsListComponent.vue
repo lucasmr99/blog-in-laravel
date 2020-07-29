@@ -1,38 +1,46 @@
 <template>
     <div>
-        <div class="card" v-for="post in posts" :key="post.title">
-            <img :src=" '/images/' + post.image" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ post.title }}</h5>
-                <p class="card-text">{{ post.content }}</p>
-                <button class="btn btn-primary" v-on:click="postClick(post)">Ver Resumen</button>
-                <router-link class="btn btn-success" :to=" {name: 'detail', params: { id: post.id} } ">Ver</router-link>
-            </div>
-        </div>
-        <modal-posts :post="postSelected"></modal-posts>
+        <posts-list-default
+        :key="currentPage" 
+        @getCurrentPage="getCurrentPage"
+        v-if="total > 0 " 
+        :posts="posts" 
+        :pCurrentPage="currentPage" 
+        :total="total"
+        ></posts-list-default>
    </div>
 </template>
 
 <script>
 export default {
     created(){
-        this.getPost();
+        this.getPosts();
     },
     methods: {
         postClick: function(p) {
             this.postSelected = p;
         },
-        getPost(){
-            fetch('/api/post')
+        getPosts(){
+            fetch('/api/post?page='+this.currentPage)
             .then(response => response.json())
-            .then( json => this.posts = json.data.data);
+            .then( json => {
+                this.posts = json.data.data
+                this.total = json.data.last_page
+            });
+        },
+        getCurrentPage: function(currentPageVal) {
+            console.log("postList + currenpage: "+currentPageVal)
+            this.currentPage = currentPageVal;
+            this.getPosts()
         }
     },
 
     data: function () {
       return {
         postSelected: '',
-        posts: []
+        posts: [],
+        total: 0,
+        currentPage:1
       }
     },
 }

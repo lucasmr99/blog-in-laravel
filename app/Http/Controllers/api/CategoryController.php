@@ -13,6 +13,6 @@ class CategoryController extends ApiResponseController
     }
 
     public function index(){
-        return $this->successResponse( Category::Paginate(10) );
+        return $this->successResponse( Category::Paginate(5) );
     }
 }

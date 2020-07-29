@@ -1,17 +1,14 @@
 <template>
     <div>
         <h1>{{ category.title }}</h1>
-        <div class="card" v-for="post in posts" :key="post.title">
-            <img :src=" '/images/' + post.image" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ post.title }}</h5>
-                <p class="card-text">{{ post.content }}</p>
-                <button class="btn btn-primary" v-on:click="postClick(post)">Ver Resumen</button>
-                <router-link class="btn btn-success" :to=" {name: 'detail', params: { id: post.id} } ">Ver</router-link>
-            </div>
-        </div>
-        <modal-posts :post="postSelected"></modal-posts>
-   </div>
+        <posts-list-default
+        :key="currentPage" 
+        @getCurrentPage="getCurrentPage"
+        v-if="total > 0 " 
+        :posts="posts" 
+        :pCurrentPage="currentPage" 
+        :total="total"
+        ></posts-list-default>   </div>
 </template>
 
 <script>
@@ -25,12 +22,18 @@ export default {
         },
         getPosts(){
             console.log( 'categories ' + this.$route.params.category_id)
-            fetch('/api/post/'+this.$route.params.category_id+'/category')
+            fetch('/api/post/'+this.$route.params.category_id+'/category?page='+this.currentPage)
             .then(response => response.json())
             .then( json => {
                 this.posts = json.data.posts.data
+                this.total = json.data.posts.last_page
                 this.category = json.data.category
             });
+        },
+        getCurrentPage: function(currentPageVal) {
+            console.log("postList + currenpage: "+currentPageVal)
+            this.currentPage = currentPageVal;
+            this.getPosts()
         }
     },
 
@@ -38,7 +41,9 @@ export default {
       return {
         postSelected: '',
         posts: [],
-        category: ''
+        total: 0,
+        category: "",
+        currentPage:1
       }
     },
 }
