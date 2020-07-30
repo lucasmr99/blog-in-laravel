@@ -57,6 +57,8 @@ Route::get('/','web\webController@index')->name('index');
 Route::get('/detail/{id}', 'web\webController@detail');
 Route::get('/post-category/{id}', 'web\webController@post_category');
 
+Route::get('/contact', 'web\webController@contact');
+
 
 Auth::routes();
 
