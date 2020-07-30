@@ -2136,9 +2136,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.getPosts();
@@ -38174,12 +38171,6 @@ var render = function() {
   return _c(
     "div",
     [
-      _c(
-        "router-link",
-        { staticClass: "btn btn-success", attrs: { to: { name: "contact" } } },
-        [_vm._v("Contacto")]
-      ),
-      _vm._v(" "),
       _vm.total > 0
         ? _c("posts-list-default", {
             key: _vm.currentPage,

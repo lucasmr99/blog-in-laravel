@@ -8,13 +8,15 @@
     <title>Modulo Admin</title>
 </head>
 <body>
-    @include('web.partials.nav-header-main')
+    <div id="app">
+        @include('web.partials.nav-header-main')
 
-    <div class="container mb-5 mt-5" id="app">
-        @yield('content')
+        <div class="container mb-5 mt-5" >
+            @yield('content')
+        </div>
+
+        @include('web.partials.footer-main')
     </div>
-
-    @include('web.partials.footer-main')
-    <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
